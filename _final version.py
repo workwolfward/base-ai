@@ -629,6 +629,7 @@ class MedicalConsultationApp(QMainWindow):
         
         try:
             jsonschema.validate(instance=advice, schema=schema)
+            return True, "验证通过"
             
         except jsonschema.ValidationError as ve:
             return False, f"JSON验证失败: {ve.message}"
